@@ -1,10 +1,9 @@
 <?php
-include("pageheader.html")
+include("pageheader.php")
 ?>
 <!----------->
-<p>
-    تماس با ما
-</p>
+<p class="bala">
+09136223720</p>
 <!------------>
 <?php
 include("pagefooter.html")

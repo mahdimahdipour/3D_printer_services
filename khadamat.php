@@ -1,8 +1,8 @@
 <?php
-include("pageheader.html")
+include("pageheader.php")
 ?>
 <!----------->
-<p>
+<p class="bala">
     خدمات
 </p>
 <!------------>

@@ -34,17 +34,17 @@ include("pageheader.php")
         <div class="row text-center">
             <div class="col-12 col-md-4 mb-3">
                 <a href="#" class="image-container">
-                    <img src="2/12.jpg" alt="">
+                    <img src="2/1.jpg" alt="">
                 </a>
             </div>
             <div class="col-12 col-md-4 mb-3">
                 <a href="#" class="image-container">
-                    <img src="2/13.jpg" alt="">
+                    <img src="2/2.jpg" alt="">
                 </a>
             </div>
             <div class="col-12 col-md-4 mb-3">
                 <a href="#" class="image-container">
-                    <img src="2/15.jpg" alt="">
+                    <img src="2/5.jpg" alt="">
                 </a>
             </div>
         </div>

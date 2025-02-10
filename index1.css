@@ -1,20 +1,18 @@
-
 body {
     direction: rtl;
     margin: 1px;
     font-size: 500;
-    margin: 0;
-    padding: 0; 
+    background-color: #00203f;
 }
 #title1 {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: b titr;
     font-size: 30px;
-
     
 }
 
 header {
+    background-color: #acf0d1;
     color: #0063B2FF;
     padding: 1px 20px;
     border-radius: 25px;
@@ -33,7 +31,6 @@ section { direction: rtl;
     display: flex;
     justify-content: center;
     font-family: b lotus;
-    
 
     
 
@@ -42,26 +39,21 @@ section { direction: rtl;
 
 nav {
     display: flex;
-    background-color: #ffffff;
+    background-color: #00203f;
     text-align: center;
     padding: 1px 1px;
     text-decoration: none;
-    
 
 }
 
-.menu{
-    background-color: #8BBEE8FF;
 
-
-}
 
 nav a {
-    color: #2c3996;
+    color: #acf0d1;
     padding: 5px 5px;
     text-decoration: none;
     text-align: center;
-    margin: 1rem;
+    
     font-family: b Compset;
     font-size: 18px;
     
@@ -69,16 +61,17 @@ nav a {
 
 nav a:hover {
     background-color: #efe5e5;
-    border-radius:15px;
+    border-radius:80px;
 }
 #tr{
 border-radius:50px;
 padding: 9px 20px;
 
 
+
 }
 footer{
-    font-family: b lotus;
+    font-family: b badr;
     text-align: center;
     background-color:rgb(116, 112, 112);
 
@@ -91,18 +84,9 @@ background-color: aqua;
 }
 .bala{
      font-family:  Nazanin;
-     text-align: right;
-    direction: rtl;
-    font-size: 1.2em;
-    margin: 20px
-     
 }
 .bal{
     font-family: Arial;
-    text-align: right;
-    direction: rtl;
-    font-size: 1.2em;
-    margin: 20px
 }
 .input1{
     background-color: rgb(241, 241, 241);
@@ -114,22 +98,18 @@ background-color: aqua;
 .input2{
     background-color: rgb(255, 255, 255);
     font-family:  b lotus;
-    margin: 1px 700px;
-    text-align:right
-    
-
+    margin: 1px 10px ; 
     
     
   
 }
 .input4{
-    background-color: rgb(7, 130, 70);
+    background-color: rgb(39, 159, 33);
     font-family:  b lotus;
-    margin: 0px 6px ;
-    padding: 1px 30px; 
+    margin: 0px 10px ;
+    padding: 1px 66px; 
     border-radius: 10px;
     border: #ffffff;
-    margin: 6px 700px;
 }
 .form{
    text-align: center;
@@ -137,48 +117,4 @@ background-color: aqua;
    
 }
 
-.input5{
-    background-color: rgb(157, 224, 238);
-    font-family:  b lotus;
-    padding: 1px 13px; 
-    border-radius: 10px;
-    border: #ffffff;
-    margin: 6px 700px;
-}
-.rast{
-    flex-grow: 4;
-    align-items: start;
-    align-content: start;
-    margin: 15px 15px 4px 900px;
-   
-}
-.left{
-    flex-grow: 1;
-    align-items: end;
-    align-content: end;
-    margin: 20px 13px ;
-
-    
-}
-#register{
-border-radius: 20px;
-}
-#login{
-    
-    border-radius: 20px;
-    }
-#logout{
-        
-    border-radius: 20px;
-    
-        
-}
-#logo{
-    width: 40px;
-    height: 40px;
-    margin-top: 15px;
-    border-radius: 10px;
-
-    
-}
 
