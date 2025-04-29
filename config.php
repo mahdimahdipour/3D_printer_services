@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "myadmin";  // نام کاربری دیتابیس شما
 $password = "admin";  // رمز عبور دیتابیس شما
-$dbname = "myadminm";  // نام دیتابیس شما
+$dbname = "myadmin";  // نام دیتابیس شما
 
 // ایجاد اتصال
 $conn = new mysqli($servername, $username, $password, $dbname);
