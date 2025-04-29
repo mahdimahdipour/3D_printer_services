@@ -1,93 +1,84 @@
 <?php
-include("pageheader.php")
-?>
-<!DOCTYPE html>
-<html lang="fa">
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include("header.php");
+include("config.php");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noora 3D</title>
-    <!-- لینک بوت استرپ -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .image-container {
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 1.5rem; /* فاصله بین تصاویر */
-        }
-        .image-container img {
-            width: 250px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px; /* گرد کردن لبه‌ها */
-            transition: transform 0.3s ease;
-        }
-        .image-container:hover img {
-            transform: scale(1.1);
-        }
-    </style>
+// دریافت تصاویر مرتبط با صفحه
+$sql = "SELECT * FROM images_page4";
+$result = $conn->query($sql);
+?>
+
+
 </head>
 
 <body dir="rtl">
     <section class="container my-4">
         <div class="row text-center">
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/1.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/2.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/5.jpg" alt="">
-                </a>
-            </div>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center align-items-center mb-3">';
+                    echo '<div class="image-container text-center">';
+                    echo "<a href='#'>";
+                    echo "<img src='uploads/" . $row['filename'] . "' alt=''>";
+                    echo "<p>" . $row['description'] . "</p>";
+                    echo "</a>";
+                    if (isset($_SESSION["role"]) && $_SESSION["role"] == 'admin') {
+                        echo "<button class='edit-button' onclick='toggleActionButtons(this)'><i class='fas fa-edit'></i></button>";
+                        echo "<div class='action-buttons'>";
+                        echo "<form action='editnoamavad.php' method='post' enctype='multipart/form-data' class='mb-2'>";
+                        echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
+                        echo "<input type='text' name='description' placeholder='توضیح جدید' class='form-control mb-2' required>";
+                        echo "<input type='file' name='image' class='form-control mb-2' required>";
+                        echo "<button type='submit' class='btn btn-primary w-100 mb-2'>ویرایش</button>";
+                        echo "</form>";
+                        echo "<form action='deletenoamavad.php' method='post'>";
+                        echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
+                        echo "<button type='submit' class='btn btn-danger w-100 mb-2'>حذف</button>";
+                        echo "</form>";
+                        echo "</div>";
+                    }
+                    echo "</div>";
+                    echo "</div>";
+                }
+            } else {
+                echo "<p>هیچ تصویری موجود نیست.</p>";
+            }
+            ?>
         </div>
-    </section>
-    <section class="container my-4">
-        <div class="row text-center">
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/72.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/71.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/6.webp" alt="">
-                </a>
-            </div>
+        <?php if (isset($_SESSION["role"]) && $_SESSION["role"] == 'admin') { ?>
+        <div class="text-center">
+            <form action="add.php" method="post" enctype="multipart/form-data" class="row justify-content-center">
+                <input type="hidden" name="page" value="page4"> <!-- افزودن فیلد صفحه -->
+                <div class="col-md-4 col-12">
+                    <input type="text" name="description" placeholder="توضیح" class="form-control mb-2" required>
+                </div>
+                <div class="col-md-4 col-12">
+                    <input type="file" name="image" class="form-control mb-2" required>
+                </div>
+                <div class="col-md-4 col-12">
+                    <button type="submit" class="btn btn-success w-100 mb-2">افزودن</button>
+                </div>
+            </form>
         </div>
+        <?php } ?>
     </section>
-    <section class="container my-4">
-        <div class="row text-center">
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/2.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/3.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-12 col-md-4 mb-3">
-                <a href="#" class="image-container">
-                    <img src="2/6.webp" alt="">
-                </a>
-            </div>
-        </div>
-    </section>
-
+<main class="container text-right">
+<b>
+<p id="bala"> 
+آدرس وب سایت :
+</b>
+<p class="bal">
+Noora3D.ir
+</p>
+<p class="bala">
+محتوای سایت:
+ این نرم افزار شامل بخش های طراحی و پرینت، قطعات پرینتر، نوع مواد می باشد
+</p>
+<p class="bala"> شماره ی تلفن: 09134661477</p>
+</main>
 <?php
 include("pagefooter.html")
 ?>
@@ -96,5 +87,18 @@ include("pagefooter.html")
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+<script>
+    function toggleActionButtons(button) {
+        var actionButtons = button.nextElementSibling;
+        if (actionButtons.style.display === "none" || actionButtons.style.display === "") {
+            actionButtons.style.display = "block";
+        } else {
+            actionButtons.style.display = "none";
+        }
+    }
+</script>
+
 </body>
 </html>

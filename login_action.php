@@ -1,30 +1,21 @@
 <?php
-
-include("pageheader.php");
-
+session_start();
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-
-$link = mysqli_connect("localhost","root","","user");
-$result = mysqli_query($link,"SELECT * FROM `noora 3d` WHERE `username` = '$username' and `password`='$password';");
+$link = mysqli_connect("localhost", "root", "", "myadmin");
+$result = mysqli_query($link, "SELECT * FROM `noora 3d` WHERE `username` = '$username' AND `password` = '$password'");
 mysqli_close($link);
-$row=mysqli_fetch_array($result);
-if($row){
-    $_SESSION["login"]=true;
+$row = mysqli_fetch_assoc($result);
+if ($row) {
+    $_SESSION["login"] = true;
+    $_SESSION["role"] = $row["role"];
     ?>
-        <script>
-            location.replace("index.php");
-        </script>
-        <?php
-}else{
-?>
-<p>نام کاربری یا رمز عبور صحیح نیست</p>
-<?php
+    <script>
+        location.replace("index.php");
+    </script>
+    <?php
+} else {
+    echo "<p>نام کاربری یا رمز عبور صحیح نیست</p>";
 }
 ?>
-<?php
-
-include("pagefooter.html")
-?>
-

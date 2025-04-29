@@ -1,10 +1,62 @@
-</main>
 <footer>
-      تمامی حقوق محفوظ است
+    <div class="footer-container" >
+        <p>تمامی حقوق محفوظ است &copy; Noora 3D - 2025</p>
+        <ul>
+            <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="mailto:support@noora3d.com"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+        <button onclick="scrollToTop()">⬆</button>
+    </div>
 </footer>
 
+<script>
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    
+}
+</script>
 
 
-</body>
-
-</html>
+<style>
+    footer {
+        background: linear-gradient(90deg, #0052cc, #7fdfff, rgb(82, 151, 254));
+        background-size: 300% 300%;
+        animation: footerAnimation 8s infinite ease-in-out;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-family: 'Vazir', sans-serif;
+    }
+    
+    @keyframes footerAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    .footer-container ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin: 10px 0 0;
+    }
+    
+    .footer-container button {
+        background: #fff;
+        color: #0052cc;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .footer-container button:hover {
+        transform: scale(1.1);
+        background-color: #ffc107;
+    }
+    </style>
+    

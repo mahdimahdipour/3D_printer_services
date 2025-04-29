@@ -4,44 +4,28 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include("header.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اسلایدشو</title>
-
     <style>
         .slideshow-container {
             position: relative;
             max-width: 800px;
             margin: auto;
-            perspective: 1500px; /* تنظیم عمق برای چرخش */
         }
 
         .slides {
             display: none;
             text-align: center;
-            width: 100%;
-            animation: flip 1s ease-in-out forwards;
-        }
-
-        @keyframes flip {
-            0% {
-                transform: rotateY(90deg);
-                opacity: 0;
-            }
-            100% {
-                transform: rotateY(0deg);
-                opacity: 1;
-            }
         }
 
         .slides img {
             width: 97%;
             border-radius: 25px;
-            height: 30%;
+            height:30%;
         }
 
         .prev, .next {
@@ -49,6 +33,7 @@ include("header.php");
             position: absolute;
             top: 50%;
             width: auto;
+            margin-top: -22px;
             padding: 16px;
             color: white;
             background-color: rgba(0, 0, 0, 0.5);
@@ -57,8 +42,13 @@ include("header.php");
             transition: 0.3s;
         }
 
-        .prev { left: 0; }
-        .next { right: 0; }
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
 
         .dots-container {
             text-align: center;
@@ -76,63 +66,75 @@ include("header.php");
             transition: background-color 0.6s ease;
         }
 
-        .active, .dot:hover { background-color: #717171; }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
     </style>
 </head>
 <body>
-
     <div class="container text-right">
         <div class="slides">
-            <a href="tarahe.php"><img src="uploads/Arse3dbank.jpg" alt="تصویر 1"></a>
+            <a href="tarahe.php">
+            <img src="uploads/Arse3dbank.jpg" alt="تصویر 1">
+            </a>
         </div>
         <div class="slides">
-            <a href="skhadamat.php"><img src="uploads/BanerArse3d2-1.jpg" alt="تصویر 2"></a>
+            <a href="skhadamat.php">
+            <img src="uploads/BanerArse3d2-1.jpg" alt="تصویر 2">
+            </a>
         </div>
         <div class="slides">
-            <a href="noamavad.php"><img src="uploads/BanerArse3d.jpg" alt="تصویر 3"></a>
+            <a href="noamavad.php">
+            <img src="uploads/BanerArse3d.jpg" alt="تصویر 3">
+            </a>
+            
         </div>
-
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
-
     <div class="dots-container">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
-
     <script>
         let slideIndex = 0;
-        let slides = document.getElementsByClassName("slides");
-
-        function showSlides(n) {
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            slideIndex = (n - 1) % slides.length;
-            if (slideIndex < 0) {
-                slideIndex = slides.length - 1;
-            }
-
-            slides[slideIndex].style.display = "block";
-            slides[slideIndex].classList.add("animate-slide");
-        }
 
         function plusSlides(n) {
-            showSlides(slideIndex + n + 1);
+            showSlides(slideIndex += n);
         }
 
         function currentSlide(n) {
-            showSlides(n);
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
         }
 
         function autoSlide() {
-            plusSlides(1);
-            setTimeout(autoSlide, 3000);
+            slideIndex++;
+            showSlides(slideIndex);
+            setTimeout(autoSlide, 3000); // تغییر خودکار هر ۳ ثانیه
         }
 
+        // شروع اسلایدشو به صورت خودکار
         autoSlide();
     </script>
 </body>
@@ -214,7 +216,7 @@ Noora3D.ir
 </p>
 <p class="bala">
 محتوای سایت:
- 
+ این سایت شامل بخش های طراحی و پرینت، قطعات پرینتر، نوع مواد می باشد
 </p>
 <p class="bala"> شماره ی تلفن: 09134661477</p>
 

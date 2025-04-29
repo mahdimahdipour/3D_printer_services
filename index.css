@@ -1,184 +1,135 @@
+.image-container {
+    width: 100%; /* کادرها را منعطف کنید */
+    max-width: 300px; /* حداکثر اندازه را حفظ کنید */
+    overflow: hidden;
+    margin: 20px; /* ایجاد فاصله میان کادرها */
+    position: relative;
+    display: inline-block; /* قرار دادن کادرها به صورت جداگانه */
+    vertical-align: top;
+    background: rgb(184, 234, 228); /* رنگ شیشه‌ای آبی برای کادر */
+    border-radius: 15px; /* گوشه‌های گرد برای ظاهر زیباتر */
+    backdrop-filter: blur(15px); /* افکت شیشه‌ای */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.51), 0 0 10px rgba(0, 0, 0, 0.515); /* سایه برای برجسته کردن */
+}
+
+.image-container img {
+    width: 100%; /* تصویر به اندازه کادر */
+    height: 200px; /* ارتفاع ثابت برای تصاویر */
+    object-fit: cover; /* تنظیم تصویر در کادر */
+    border-radius: 15px 15px 0 0; /* گرد کردن گوشه‌های بالایی تصویر */
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.1); /* افکت بزرگنمایی هنگام هاور */
+    
+
+    
+}
+
+.image-container p {
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #333; /* رنگ متن برای وضوح */
+    font-size: 0.9rem;
+}
+
+
+
+.action-buttons {
+    display: none;
+    margin-top: 10px;
+}
+
+.edit-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    
+}
+
 
 body {
     direction: rtl;
-    margin: 1px;
-    font-size: 500;
-    margin: 0;
-    padding: 0; 
+        font-family: 'Vazir', sans-serif; /* تغییر به فونت وزیری */
+    
+
+    /* پس‌زمینه شفاف و شیشه‌ای */
+    background-image: url('uploads/پرینت-سه-بعدی.webp'); /* جایگزین 'your-image-url.jpg' با آدرس تصویر */
+    background-position: center; /* تنظیم موقعیت تصویر در مرکز */
+    background-repeat: no-repeat; /* جلوگیری از تکرار تصویر */
+    background-size: cover;
+    backdrop-filter: blur(10px); /* تاری ملایم برای افکت شیشه‌ای */
+    color: #ffffff;
+    font-family: 'Vazir', sans-serif;
+    
 }
-#title1 {
+
+.container {
+    position: relative;
+    width: 85%;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(115, 201, 252, 0.521); /* افکت شفاف برای داخل */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(135, 206, 250, 0.5);
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(176, 224, 230, 0.7);
+}
+
+
+
+h1, p, button {
+    font-family: 'Vazir', sans-serif; /* اعمال فونت برای عناوین، پاراگراف‌ها و دکمه‌ها */
+}
+.bala {
+    font-family: b titr; /* استفاده از فونت زیبای وزیر */
+    font-size: 1.2rem; /* اندازه مناسب برای نمایش خوانا */
+    line-height: 1.8; /* فاصله خطوط برای خوانایی بیشتر */
+    color: #0052cc; /* رنگ آبی برای هماهنگی با سایت */
+    background-color: #f0f8ff; /* پس‌زمینه روشن برای برجسته‌سازی متن */
+    padding: 10px; /* فاصله داخلی برای زیباتر شدن */
+    border-radius: 8px; /* گوشه‌های گرد برای ظاهری مدرن */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه برای عمق‌دهی */
+    margin-bottom: 15px; /* فاصله بین عناصر */
+}
+
+.bal {
+    font-family: 'Vazir', sans-serif; /* همان فونت برای هماهنگی */
+    font-size: 1.5rem; /* اندازه بزرگ‌تر برای جلب توجه */
+    color: #ff4500; /* رنگ نارنجی برای تنوع و انرژی */
+    font-weight: bold; /* برجسته کردن متن */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* سایه برای زیبایی */
     
-}
-
-header {
-    color: #0063B2FF;
-    padding: 1px 20px;
-    border-radius: 25px;
-}
-
-aside {
-    width: 200%;
-    padding: 10PX 10PX 10PX 10PX;
-    border-radius: 0px;
-}
-
-
-section { direction: rtl;
-    width: 100%;
-    padding: 10px 10px 20px 3px ;
-    display: flex;
-    justify-content: center;
-    font-family: b lotus;
-    
-
-    
-
-
-}
-
-nav {
-    display: flex;
-    background-color: #ffffff;
-    text-align: center;
-    padding: 1px 1px;
-    text-decoration: none;
-    
-
-}
-
-.menu{
-    background-color: #8BBEE8FF;
-
-
-}
-
-nav a {
-    color: #2c3996;
-    padding: 5px 5px;
-    text-decoration: none;
-    text-align: center;
-    margin: 1rem;
-    font-family: b Compset;
-    font-size: 18px;
-    
-}
-
-nav a:hover {
-    background-color: #efe5e5;
-    border-radius:15px;
-}
-#tr{
-border-radius:50px;
-padding: 9px 20px;
-
-
-}
-footer{
-    font-family: b lotus;
-    text-align: center;
-    background-color:rgb(116, 112, 112);
-
-}
-.mmm{
-font-size: 2px;
-font-family: b lotus;
-color: #f7ce00;
-background-color: aqua;
-}
-.bala{
-     font-family:  Nazanin;
-     text-align: right;
-    direction: rtl;
-    font-size: 1.2em;
-    margin: 20px
-     
-}
-.bal{
-    font-family: Arial;
-    text-align: right;
-    direction: rtl;
-    font-size: 1.2em;
-    margin: 20px
-}
-.input1{
-    background-color: rgb(241, 241, 241);
-    font-family:  b lotus;
-    margin: 10px 10px ; 
-    
-  
-}
-.input2{
-    background-color: rgb(255, 255, 255);
-    font-family:  b lotus;
-    margin: 1px 700px;
-    text-align:right
-    
-
-    
-    
-  
-}
-.input4{
-    background-color: rgb(7, 130, 70);
-    font-family:  b lotus;
-    margin: 0px 6px ;
-    padding: 1px 30px; 
-    border-radius: 10px;
-    border: #ffffff;
-    margin: 6px 700px;
-}
-.form{
-   text-align: center;
-
    
 }
 
-.input5{
-    background-color: rgb(157, 224, 238);
-    font-family:  b lotus;
-    padding: 1px 13px; 
-    border-radius: 10px;
-    border: #ffffff;
-    margin: 6px 700px;
-}
-.rast{
-    flex-grow: 4;
-    align-items: start;
-    align-content: start;
-    margin: 15px 15px 4px 900px;
-   
-}
-.left{
-    flex-grow: 1;
-    align-items: end;
-    align-content: end;
-    margin: 20px 13px ;
 
-    
-}
-#register{
-border-radius: 20px;
-}
-#login{
-    
-    border-radius: 20px;
-    }
-#logout{
-        
-    border-radius: 20px;
-    
-        
-}
-#logo{
-    width: 40px;
-    height: 40px;
-    margin-top: 15px;
-    border-radius: 10px;
 
-    
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
